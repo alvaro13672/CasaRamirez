@@ -1,0 +1,35 @@
+:root{--pizarra:#3d6073;--pizarra-osc:#2b4655;--oro:#e0b040;--fondo:#f3f5f6;--borde:#c9d3d8;--txt:#1d2a31}
+@media (prefers-color-scheme:dark){:root{--fondo:#162027;--txt:#e6edf0;--borde:#3a4d58}}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.4 system-ui,"Segoe UI",sans-serif;background:var(--fondo);color:var(--txt)}
+.top{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem;background:var(--pizarra);color:#fff;padding:.6rem 1rem;border-bottom:4px solid var(--oro)}
+.marca{font-size:1.15rem;margin-right:auto}
+nav{display:flex;flex-wrap:wrap;gap:.35rem}
+nav button{background:#ffffff26;color:#fff;border:0;padding:.5rem .8rem;border-radius:6px;cursor:pointer}
+nav button.activo{background:var(--oro);color:#1d2a31;font-weight:600}
+.estado{font-size:.85rem}
+main{max-width:1000px;margin:auto;padding:1rem}
+.fila{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:.8rem;align-items:end}
+.caja{border:2px solid var(--pizarra);border-radius:8px;padding:.6rem .9rem}
+input,select,button{font:inherit}
+input,select{padding:.55rem;border:2px solid var(--pizarra);border-radius:6px;background:transparent;color:inherit}
+.buscador input:first-child{flex:1;min-width:200px}
+#cant{width:90px}
+button{background:var(--pizarra);color:#fff;border:0;border-radius:6px;padding:.6rem 1.1rem;cursor:pointer}
+button.sec{background:var(--pizarra-osc)}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--oro);outline-offset:2px}
+.tabla-wrap{overflow-x:auto;border:2px solid var(--pizarra);border-radius:8px;min-height:220px}
+table{width:100%;border-collapse:collapse}
+th{background:var(--pizarra);color:#fff;text-align:left;padding:.5rem}
+td{padding:.45rem .5rem;border-bottom:1px solid var(--borde)}
+tr.sel td{background:#e0b04040}
+td input{width:80px;padding:.3rem}
+.cobro{margin-top:1rem;justify-content:flex-end}
+.total{background:var(--pizarra);color:#fff;padding:.6rem 1rem;border-radius:8px;display:flex;gap:1rem}
+.tarjetas{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.8rem}
+.tarjetas div{border:2px solid var(--pizarra);border-radius:8px;padding:1rem}
+.tarjetas b{display:block;font-size:1.5rem}
+.bajo{color:#b3261e;font-weight:600}
+.aviso{position:fixed;bottom:1rem;left:50%;transform:translateX(-50%);background:var(--pizarra-osc);color:#fff;padding:.7rem 1.2rem;border-radius:8px;opacity:0;pointer-events:none;transition:opacity .2s}
+.aviso.ver{opacity:1}
+@media (prefers-reduced-motion:reduce){.aviso{transition:none}}

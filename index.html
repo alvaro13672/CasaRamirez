@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Casa Ramírez · Gestión comercial</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="top">
+  <strong class="marca">Casa Ramírez</strong>
+  <nav id="menu">
+    <button data-view="inicio">Inicio</button>
+    <button data-view="venta" class="activo">Factura</button>
+    <button data-view="inventario">Inventario</button>
+    <button data-view="clientes">Clientes</button>
+    <button data-view="devoluciones">Devoluciones</button>
+    <button data-view="cierre">Cierre</button>
+  </nav>
+  <span id="estado" class="estado"></span>
+</header>
+
+<main>
+  <section id="inicio" class="vista" hidden>
+    <h2>Resumen del día</h2>
+    <div id="resumen" class="tarjetas"></div>
+  </section>
+
+  <section id="venta" class="vista">
+    <div class="fila">
+      <div class="caja"><strong id="nroVenta"></strong> <span id="fecha"></span></div>
+      <div class="caja">Usuario: Empleado 1 · Estado: Activo</div>
+    </div>
+    <div class="fila buscador">
+      <input id="buscar" list="lista" placeholder="Buscar por nombre o código de barras" autocomplete="off">
+      <datalist id="lista"></datalist>
+      <input id="cant" type="number" min="0.01" step="0.01" value="1" aria-label="Cantidad">
+      <button id="agregar">Agregar</button>
+      <button id="quitar" class="sec">Quitar</button>
+    </div>
+    <div class="tabla-wrap">
+      <table>
+        <thead><tr><th>Código</th><th>Producto</th><th>Cantidad</th><th>Tipo</th><th>Precio un.</th><th>Subtotal</th></tr></thead>
+        <tbody id="carrito"></tbody>
+      </table>
+    </div>
+    <div class="fila cobro">
+      <label>Medio de pago
+        <select id="medio"><option>Efectivo</option><option>Transferencia</option><option>Tarjeta</option><option>QR</option><option>Fiado</option></select>
+      </label>
+      <label id="lblCliente" hidden>Cliente
+        <select id="cliente"></select>
+      </label>
+      <div class="total">TOTAL <b id="total">$0,00</b></div>
+      <button id="limpiar" class="sec">Limpiar</button>
+      <button id="vender">Vender</button>
+    </div>
+  </section>
+
+  <section id="inventario" class="vista" hidden>
+    <h2>Inventario</h2>
+    <div class="tabla-wrap"><table>
+      <thead><tr><th>Código</th><th>Producto</th><th>Rubro</th><th>Tipo</th><th>Precio</th><th>Stock</th></tr></thead>
+      <tbody id="tbInv"></tbody></table></div>
+  </section>
+
+  <section id="clientes" class="vista" hidden>
+    <h2>Clientes y cuentas corrientes</h2>
+    <div class="tabla-wrap"><table>
+      <thead><tr><th>Cliente</th><th>Saldo (fiado)</th><th></th></tr></thead>
+      <tbody id="tbCli"></tbody></table></div>
+  </section>
+
+  <section id="devoluciones" class="vista" hidden>
+    <h2>Devoluciones</h2>
+    <p>Pendiente de definir con el dueño (ver preguntas al final del informe: bajas y mermas).</p>
+  </section>
+
+  <section id="cierre" class="vista" hidden>
+    <h2>Cierre de caja</h2>
+    <div id="cierreDatos" class="tarjetas"></div>
+  </section>
+</main>
+<div id="aviso" class="aviso" role="status" aria-live="polite"></div>
+<script src="js/app.js"></script>
+</body>
+</html>
